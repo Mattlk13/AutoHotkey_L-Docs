@@ -16,10 +16,72 @@
 <p>For older changes, see <a href="ChangeLogHelp.htm">Archived Changes</a>.</p>
 
 <!--new revisions go here-->
-<h2 id="v1.1.33.00">1.1.33.00 - June 15, 2020</h2>
+<h2 id="v1.1.33.09">1.1.33.09 - May 8, 2021</h2>
+<p>Fixed crash on load when an AltTab action is used in a key-up/down pair.</p>
+<p>Fixed garbage error text when the main script file cannot be opened.</p>
+<p>Removed "Error at line 0" from error messages which appear before the first line is read.</p>
+<p>Fixed focus resetting when a minimized GUI is restored.</p>
+<p>Fixed focus not saving when a GUI is minimized with Gui Show.</p>
+
+<h2 id="v1.1.33.08">1.1.33.08 - April 23, 2021</h2>
+<p>Fixed non-zero SendLevel events erroneously being suppressed in cases not covered by the v1.1.33.07 fix:</p>
+<ul>
+  <li>When there's a matching context-sensitive hotkey with a higher #InputLevel and no enabled global variant.</li>
+  <li>When there's no matching key-down hotkey, but there's a key-up hotkey with a higher #InputLevel.</li>
+</ul>
+
+<h2 id="v1.1.33.07">1.1.33.07 - April 21, 2021</h2>
+<p>Fixed tray icon freezing and becoming blurry after screen DPI changes.</p>
+<p>Fixed hotkeys disabled by #InputLevel erroneously suppressing keys.</p>
+
+<h2 id="v1.1.33.06">1.1.33.06 - March 14, 2021</h2>
+<p>Fixed a bug introduced by v1.1.33.05 were certain hotkeys were ignored. This included joystick hotkeys and all hotkeys to which #MaxThreadsBuffer or the B option is applied.</p>
+
+<h2 id="v1.1.33.05">1.1.33.05 - March 10, 2021</h2>
+<p>Fixed bugs with hotkey variants having different #InputLevels.</p>
+<ul>
+  <li>Hotkey variants executing despite send level being too low, due to a global variant having lower #InputLevel.</li>
+  <li>Hotkey variants not executing because a previous variant was ineligible due to #InputLevel.</li>
+</ul>
+<p>Fixed Ctrl/Shift/Alt (without L/R) as hook hotkeys.</p>
+
+<h2 id="v1.1.33.04">1.1.33.04 - March 2, 2021</h2>
+<p>Removed dependency on the POPCNT instruction, which is not supported by old CPUs (e.g. Core 2).</p>
+
+<h2 id="v1.1.33.03">1.1.33.03 - March 1, 2021</h2>
+<p>Fixed crashing when an empty SafeArray is enumerated.</p>
+<p>Fixed height to not auto-expand for Button/Checkbox/Radio with -Wrap.</p>
+<p>Fixed WM_DESTROY bypassing release of objects in global/static vars.</p>
+<p>Fixed WinMenuSelectItem second-attempt matching to handle &amp; correctly. Specifically, items with actual text like "a &amp;&amp; b" which appear as "a &amp; b" will now match "a &amp; b" instead of "a&nbsp; b".</p>
+<p>Fixed breakpoint on Case/Default line breaking at end of previous case.</p>
+<p>Changed SoundBeep to ignore duration if negative, instead of wrapping around to a large positive value.</p>
+<p>Fixed mouse hotkeys with ! to mask Alt-up after key-repeat if possible.</p>
+<p>Fixed several issues with overlapping hotkeys.</p>
+<ul>
+  <li>Key-up hotkeys firing incorrectly because they were paired with a hotkey with overlapping but different requirements, such as <code>&lt;^a up</code> firing for RCtrl+A because it was paired with <code>^a</code>; or <code>*^c up</code> firing for Shift+C because it was paired with <code>*+c</code>, and both can fire for Ctrl+Shift+C.</li>
+  <li>Unpredictable prioritization of hotkeys with the same modifiers but different L/R variants, or different modifiers when neither one is a perfect subset of the other.  Priority was affected by	order of definition to a degree but shifted unpredictably when hotkeys were added or removed.</li>
+</ul>
+
+<h2 id="v1.1.33.02">1.1.33.02 - July 17, 2020</h2>
+<p>Fixed InputHook.EndKey to prefer any vk over sc000.</p>
+<p>Fixed <code>InputHook.KeyOpt("{sc000}", flags)</code>.</p>
+<p>Fixed #Warn Unreachable flagging Case/Default as unreachable.</p>
+
+<h2 id="v1.1.33.01">1.1.33.01 - July 13, 2020</h2>
+<p>Fixed modifier key-up hotkeys like <code>LShift up::</code> not suppressing key-up unless a corresponding key-down hotkey is defined.</p>
+<p>Fixed icons loaded from DLL/EXE not using the closest matching size if it's first in the icon group [broken by v1.1.33.00].</p>
+<p>Fixed <code>a up::</code> erroneously taking precedence over <code>b &amp; a up::</code> if <code>a::</code> is defined but not <code>b &amp; a::</code>.</p>
+<p>Fixed <code>b &amp; a up::</code> not suppressing <code>a</code> when <code>a::</code> is defined but disabled by #If and <code>b &amp; a::</code> is not defined.</p>
+
+<h2 id="v1.1.33.00">1.1.33.00 - June 30, 2020</h2>
+<p>Added <a href="commands/_ErrorStdOut.htm">#ErrorStdOut</a> <em>Encoding</em> parameter.</p>
+<p>Added <a href="Scripts.htm#ErrorStdOut">/ErrorStdOut=<em>Encoding</em></a> command line switch.</p>
+<p>Added <a href="commands/_Warn.htm#Unreachable">#Warn Unreachable</a> (warning mode).</p>
+<p>Added <a href="commands/_Requires.htm">#Requires AutoHotkey v<em>Version</em></a> (directive).</p>
+<p>Added detection of program-terminating SEH exceptions, to display an error dialog.</p>
 <p>Implemented numerous improvements to Ahk2Exe developed by fincs, TAC109, Joe DF, and Ben Allred.</p>
-<p>Added the capability to specify encoding with #ErrorStdOut or /ErrorStdOut=.</p>
-<p>Fixed some possible undefined behaviour in the Input command.</p>
+<p>Fixed Send causing unwanted hotkey buffering.</p>
+<p>Fixed a possible bug where Input causes undefined behaviour. [PR #159 from Helgef] </p>
 <p>Fixed WinKill to actually do more than WinClose.</p>
 <p>Fixed A_WinDir to always return the system Windows directory.</p>
 <p>Fixed FileGetShortcut/FileCreateShortcut to not increment/decrement negative icon indices (resource IDs).</p>
@@ -165,7 +227,7 @@
 <li>Added hotstring <a href="Hotstrings.htm#X">X option</a> to execute a same-line action instead of auto-replace.</li>
 <li>Added <a href="commands/Hotstring.htm">Hotstring()</a>.</li>
 <li>Added <a href="Hotstrings.htm#Function">function hotstrings</a>.</li>
-<li>Added MaxParts parameter to <a href="commands/StringSplit.htm#function">StrSplit</a>.</li>
+<li>Added MaxParts parameter to <a href="commands/StrSplit.htm">StrSplit</a>.</li>
 <li>Improved <a href="commands/_MenuMaskKey.htm">#MenuMaskKey</a> to allow specifying VK and SC, or vk00sc000.</li>
 </ul>
 
@@ -535,7 +597,7 @@
 <p>Enhanced Hotkey, Menu, SetTimer, Gui events and Gui control events to accept <a href="misc/Labels.htm#Functions">a function instead of a label</a>, if no label is found.</p>
 <p>Enhanced Hotkey, Menu, SetTimer and Gui control events to accept a <a href="objects/Functor.htm">function object</a>. Added a Delete sub-command for SetTimer to allow the object to be released.</p>
 <p>Enhanced <a href="commands/OnMessage.htm">OnMessage()</a> to allow any number of functions or function objects to monitor a single message.</p>
-<p>Added <a href="commands/OnExit.htm">OnExit()</a> and <a href="commands/OnClipboardChange.htm">OnClipboardChange()</a>, which accept a function name or object.</p>
+<p>Added <a href="commands/OnExit.htm#function">OnExit()</a> and <a href="commands/OnClipboardChange.htm#function">OnClipboardChange()</a>, which accept a function name or object.</p>
 <p>Added capability to <a href="Hotkeys.htm#Function">point hotkey labels at a function definition</a>.</p>
 <p>Added <a href="commands/Format.htm#ULT">U/L/T modifiers</a> to perform case conversion with Format().</p>
 <p>Added the <a href="commands/Input.htm#E">E option</a> to the Input command, for handling end keys by character instead of keycode.</p>
@@ -751,7 +813,7 @@
 <p>Fixed variadic function calls with named values for required parameters.</p>
 
 <h2 id="v1.1.13.00">1.1.13.00 - August 27, 2013</h2>
-<p>Ported <a href="commands/StringSplit.htm">StrSplit()</a> from v2 alpha.</p>
+<p>Ported <a href="commands/StrSplit.htm">StrSplit()</a> from v2 alpha.</p>
 
 <h2 id="v1.1.12.00">1.1.12.00 - August 14, 2013</h2>
 <p>Optional parameters can be omitted by writing two consecutive commas, as in <code>InStr(a, b,, 2)</code>.  Unlike previous versions, this now works for objects (including COM objects) and built-in functions.  <code>[a,,b]</code> can be used to create a sparse array.</p>
@@ -885,7 +947,7 @@
 <p>Fixed <a href="commands/Send.htm#SendEvent">SendEvent</a> with a key delay of 0; a change introduced by v1.1.05.04 caused it to be slower than intended.</p>
 <p>Fixed <a href="objects/Object.htm#Remove">Object.Remove(i)</a> not adjusting keys if Object[i] doesn't exist.</p>
 <p>Fixed an error in <a href="commands/ComObjType.htm">ComObjType()</a> which may have caused unpredictable behaviour when it is called via an <a href="commands/ComObjActive.htm#Remarks">alternative name</a>.</p>
-<p>Fixed <a href="commands/ExitApp.htm">ExitApp</a> to exit the thread if an <a href="commands/OnExit.htm">OnExit</a> subroutine prevents the script from terminating, instead of resuming execution after the <a href="commands/Block.htm">block</a> which contained ExitApp.</p>
+<p>Fixed <a href="commands/ExitApp.htm">ExitApp</a> to exit the thread if an <a href="commands/OnExit.htm#command">OnExit</a> subroutine prevents the script from terminating, instead of resuming execution after the <a href="commands/Block.htm">block</a> which contained ExitApp.</p>
 <p>Calling a function via an object no longer acts as a barrier to exiting the thread. Consequently, if <a href="commands/Exit.htm">Exit</a> is used or a runtime error occurs within a <a href="Objects.htm#Custom_Classes_method">class method</a>, the entire thread exits instead of just the function.</p>
 <p>Calling a base-class method using <a href="Objects.htm#Custom_Classes_base">base.Method()</a> or similar inside a class definition no longer causes a <a href="commands/_Warn.htm">UseUnset</a> warning if the method doesn't exist. Consequently, instantiating an object which has <a href="Objects.htm#Custom_Classes_var">instance variables</a> no longer causes a warning about the internal <code>base.__Init</code> method if the base class has no instance variables.</p>
 
@@ -1171,7 +1233,7 @@
 <p>Fixed: Variadic function calls were unstable when param object was empty.</p>
 
 <h2 id="v1.0.91.04">1.0.91.04 - December 29, 2010</h2>
-<p>Fixed (Unicode): RegExReplace omitted all text up to StartingPosition (broken by v1.0.90.00).</p>
+<p>Fixed (Unicode): RegExReplace omitted all text up to StartingPos (broken by v1.0.90.00).</p>
 
 <h2 id="v1.0.91.03">1.0.91.03 - December 27, 2010</h2>
 <p>Fixed: RegEx callout subpattern vars - broken by v1.0.90.00.</p>
@@ -1351,14 +1413,14 @@
 <p>Changed: <code>x.y[]</code> is now equivalent to <code>(x.y)[]</code> rather than <code>x["y"]</code>.</p>
 <p>Changed: Built-in methods can now be called with or without the underscore prefix (e.g. <code>obj.MaxIndex()</code> or <code>obj._MaxIndex()</code>).</p>
 
-<h2 id="L52">Revision 52 (again) - July 10, 2010</h2>
+<h2 id="L52_2">Revision 52 (again) - July 10, 2010</h2>
 <p>Added support for built-in and environment variables in double-derefs.</p>
 <p>Improved support for multi-byte characters in certain codepages (previously only 932, 936, 949, 950 and 1361 were supported).</p>
 <p>Fixed: StrPut failed for codepages which don't support WC_NO_BEST_FIT_CHARS, such as UTF-7.</p>
 <p>Fixed: Double-deref as object - <code>literal%var%.literal</code>.</p>
 <p>Fixed: <code>StrPut("", Encoding)</code> null-terminated an invalid address.</p>
 
-<h2>Revision 52 - June 12, 2010</h2>
+<h2 id="L52">Revision 52 - June 12, 2010</h2>
 <p>Fixed: ObjRemove's Key parameter is now optional, as with <a href="objects/Object.htm#Remove">Object._Remove</a>.</p>
 <p>Fixed: Files were improperly locked while reading, unlike in older versions.</p>
 <p>Fixed: Uppercase Hex format caused negative integers to become unsigned.</p>

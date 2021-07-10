@@ -15,11 +15,15 @@
 
 <h1>Alphabetical Command and Function Index</h1>
 <p>Click on a command or function name for details. Entries in <span class="larger">large font</span> are the most commonly used.</p>
-<p>(Go to entries starting with: <a href="#E">E</a>,  &nbsp; <a href="#I">I</a>,  &nbsp; <a href="#M">M</a>,  &nbsp; <a href="#S">S</a>,  &nbsp; <a href="#W">W</a>, &nbsp; <a href="#hash">#</a>.)</p>
+<p>Go to entries starting with: <a href="#E">E</a>,  &nbsp; <a href="#I">I</a>,  &nbsp; <a href="#M">M</a>,  &nbsp; <a href="#S">S</a>,  &nbsp; <a href="#W">W</a>, &nbsp; <a href="#hash">#</a></p>
 
 <table class="info">
   <tr>
-    <td style="width:11em" class="larger"><a href="Block.htm">{ ... } (Block)</a></td>
+    <th style="width:11em">Name</th>
+    <th abbr="Descr">Description</th>
+  </tr>
+  <tr>
+    <td class="larger"><a href="Block.htm">{ ... } (Block)</a></td>
     <td>Blocks are one or more <a href="../Concepts.htm#statement">statements</a> enclosed in braces. Typically used with <a href="../Functions.htm#define">function definitions</a> and <a href="../Language.htm#control-flow">control flow statements</a>.</td>
   </tr>
   <tr>
@@ -27,7 +31,7 @@
     <td>Creates a scriptable associative array.</td>
   </tr>
   <tr>
-    <td class="larger"><a href="../Objects.htm#Usage">[ ... ] / Array()</a></td>
+    <td class="larger"><a href="../Objects.htm#Usage_Simple_Arrays">[ ... ] / Array()</a></td>
     <td>Creates a scriptable associative array with integer keys.</td>
   </tr>
   <tr>
@@ -88,7 +92,7 @@
   </tr>
   <tr>
     <td><a href="ComObjArray.htm">ComObjArray()</a></td>
-    <td>Creates a SAFEARRAY for use with COM.</td>
+    <td>Creates a SafeArray for use with COM.</td>
   </tr>
   <tr>
     <td><a href="ComObjConnect.htm">ComObjConnect()</a></td>
@@ -196,11 +200,11 @@
   </tr>
   <tr>
     <td><a href="DetectHiddenText.htm">DetectHiddenText</a></td>
-    <td>Determines whether invisible text in a window is &quot;seen&quot;  for the purpose of finding the window. This affects commands such as IfWinExist and WinActivate.</td>
+    <td>Determines whether invisible text in a window is "seen"  for the purpose of finding the window. This affects commands, built-in functions and control flow statements such as WinExist() and WinActivate.</td>
   </tr>
   <tr>
     <td><a href="DetectHiddenWindows.htm">DetectHiddenWindows</a></td>
-    <td>Determines whether invisible windows are &quot;seen&quot; by  the script.</td>
+    <td>Determines whether invisible windows are "seen" by  the script.</td>
   </tr>
   <tr>
     <td class="larger"><a href="DllCall.htm">DllCall()</a></td>
@@ -218,8 +222,8 @@
     <td><a href="DriveSpaceFree.htm">DriveSpaceFree</a></td>
     <td>Retrieves the free disk space of a drive, in Megabytes.</td>
   </tr>
-  <tr>
-    <td id="E"><a href="Edit.htm">Edit</a></td>
+  <tr id="E">
+    <td><a href="Edit.htm">Edit</a></td>
     <td>Opens the current script for editing in the associated editor.</td>
   </tr>
   <tr>
@@ -256,15 +260,15 @@
   </tr>
   <tr>
     <td><a href="Throw.htm#Exception">Exception()</a></td>
-    <td>Creates an object which can be used to throw a custom exception.</td>
+    <td>Creates an object with properties, also common to exceptions created by <a href="Catch.htm#RuntimeErrors">runtime errors</a>.</td>
   </tr>
   <tr>
     <td><a href="Exit.htm">Exit</a></td>
-    <td>Exits the <a href="../misc/Threads.htm">current thread</a> or (if the script is not <a href="_Persistent.htm">persistent</a> and contains no hotkeys) the entire script.</td>
+    <td>Exits the <a href="../misc/Threads.htm">current thread</a> or (if the script is not <a href="_Persistent.htm">persistent</a>) the entire script.</td>
   </tr>
   <tr>
     <td class="larger"><a href="ExitApp.htm">ExitApp</a></td>
-    <td>Terminates the script unconditionally.</td>
+    <td>Terminates the script.</td>
   </tr>
   <tr>
     <td><a href="Math.htm#Exp">Exp()</a></td>
@@ -296,7 +300,7 @@
   </tr>
   <tr>
     <td><a href="FileEncoding.htm">FileEncoding</a></td>
-    <td>Sets the default encoding for <a href="FileRead.htm">FileRead</a>, <a href="FileReadLine.htm">FileReadLine</a>, <a href="LoopReadFile.htm">Loop Read</a>, <a href="FileAppend.htm">FileAppend</a>, and <a href="FileOpen.htm">FileOpen()</a>.<br><i>See also:</i> <a href="../AHKL_Features.htm#enc">Text Encodings</a></td>
+    <td>Sets the default encoding for <a href="FileRead.htm">FileRead</a>, <a href="FileReadLine.htm">FileReadLine</a>, <a href="LoopReadFile.htm">Loop Read</a>, <a href="FileAppend.htm">FileAppend</a>, and <a href="FileOpen.htm">FileOpen()</a>.</td>
   </tr>
   <tr>
     <td class="larger"><a href="FileExist.htm">FileExist()</a></td>
@@ -376,7 +380,7 @@
   </tr>
   <tr>
     <td class="larger"><a href="Finally.htm">Finally</a></td>
-    <td>Ensures that a block of code is always executed after a <a href="Try.htm">Try</a> statement finishes.</td>
+    <td>Ensures that one or more statements are always executed after a <a href="Try.htm">Try</a> statement finishes.</td>
   </tr>
   <tr>
     <td><a href="Math.htm#Floor">Floor()</a></td>
@@ -411,7 +415,11 @@
     <td>Retrieves the scan code of a key.</td>
   </tr>
   <tr>
-    <td><a href="GetKeyState.htm">GetKeyState</a></td>
+    <td><a href="GetKeyState.htm#command">GetKeyState</a></td>
+    <td>Checks if a keyboard key or mouse/joystick button is down or up. Also retrieves joystick status.</td>
+  </tr>
+  <tr>
+    <td><a href="GetKeyState.htm#function">GetKeyState()</a></td>
     <td>Checks if a keyboard key or mouse/joystick button is down or up. Also retrieves joystick status.</td>
   </tr>
   <tr>
@@ -458,8 +466,8 @@
     <td><a href="Hotstring.htm">Hotstring()</a></td>
     <td>Creates, modifies, enables, or disables a hotstring while the script is running.</td>
   </tr>
-  <tr>
-    <td id="I" class="larger"><a href="IfExpression.htm">If (expression)</a></td>
+  <tr id="I">
+    <td class="larger"><a href="IfExpression.htm">If (expression)</a></td>
     <td>Specifies one or more <a href="../Concepts.htm#statement">statements</a> to execute if an <a href="../Variables.htm#Expressions">expression</a> evaluates to true.</td>
   </tr>
   <tr>
@@ -483,7 +491,7 @@
     <td>Compares a <a href="../Variables.htm">variable</a> to a value for equality. Synonymous with: <code>if Var = Value</code> | <code>if Var != Value</code>.</td>
   </tr>
   <tr>
-    <td class="larger"><a href="IfExist.htm">IfExist / IfNotExist</a></td>
+    <td><a href="IfExist.htm">IfExist / IfNotExist</a></td>
     <td>Checks for the existence of a file or folder.</td>
   </tr>
   <tr>
@@ -491,7 +499,7 @@
     <td>Compares a <a href="../Variables.htm">variable</a> to a value. Synonymous with: <code>if Var &gt; Value</code> | <code>if Var &gt;= Value</code>.</td>
   </tr>
   <tr>
-    <td class="larger"><a href="IfInString.htm">IfInString / IfNotInString</a> / <a href="InStr.htm">InStr()</a></td>
+    <td><a href="IfInString.htm">IfInString / IfNotInString</a></td>
     <td>Checks if a <a href="../Variables.htm">variable</a> contains the specified string.</td>
   </tr>
   <tr>
@@ -503,11 +511,11 @@
     <td>Checks which button was pushed by the user during the most recent <a href="MsgBox.htm">MsgBox</a> command.</td>
   </tr>
   <tr>
-    <td class="larger"><a href="WinActive.htm">IfWinActive / IfWinNotActive</a><br></td>
+    <td><a href="IfWinActive.htm">IfWinActive / IfWinNotActive</a></td>
     <td>Checks if the specified window exists and is currently active (foremost).</td>
   </tr>
   <tr>
-    <td class="larger"><a href="WinExist.htm">IfWinExist / IfWinNotExist</a><br></td>
+    <td><a href="IfWinExist.htm">IfWinExist / IfWinNotExist</a></td>
     <td>Checks if the specified window exists.</td>
   </tr>
   <tr>
@@ -526,11 +534,11 @@
   </tr>
   <tr>
     <td><a href="IniRead.htm">IniRead</a></td>
-    <td>Reads a value from a standard format .ini file.</td>
+    <td>Reads a value, section or list of section names from a standard format .ini file.</td>
   </tr>
   <tr>
     <td><a href="IniWrite.htm">IniWrite</a></td>
-    <td>Writes a value to a standard format .ini file.</td>
+    <td>Writes a value or section to a standard format .ini file.</td>
   </tr>
   <tr>
     <td><a href="Input.htm">Input</a></td>
@@ -545,7 +553,7 @@
     <td>Creates an object which can be used to collect or intercept keyboard input.</td>
   </tr>
   <tr>
-    <td><a href="InStr.htm">InStr()</a></td>
+    <td class="larger"><a href="InStr.htm">InStr()</a></td>
     <td>Searches for a given <em>occurrence</em> of a string, from the left or the right.</td>
   </tr>
   <tr>
@@ -630,8 +638,8 @@
     <a href="ListView.htm#LV_SetImageList">LV_SetImageList()</a></td>
     <td>The means by which the rows and columns of a <a href="ListView.htm">ListView</a> control are added, modified or retrieved.</td>
   </tr>
-  <tr>
-    <td id="M"><a href="Math.htm#Max">Max()</a></td>
+  <tr id="M">
+    <td><a href="Math.htm#Max">Max()</a></td>
     <td>Returns the highest value of one or more numbers.</td>
   </tr>
   <tr>
@@ -737,12 +745,16 @@
     <td>Specifies a <a href="../Functions.htm">function</a> to run automatically when an unhandled error occurs.</td>
   </tr>
   <tr>
-    <td><a href="OnExit.htm">OnExit</a></td>
+    <td><a href="OnExit.htm#command">OnExit</a></td>
     <td>Specifies a <a href="Gosub.htm">subroutine</a> to run automatically when the script exits.</td>
   </tr>
   <tr>
+    <td><a href="OnExit.htm#function">OnExit()</a></td>
+    <td>Specifies a <a href="../Functions.htm">callback function</a> to run automatically when the script exits.</td>
+  </tr>
+  <tr>
     <td><a href="OnMessage.htm">OnMessage()</a></td>
-    <td>Specifies a <a href="../Functions.htm">function</a> to call automatically when the script receives the specified message.</td>
+    <td>Specifies a <a href="../Functions.htm">function</a> or <a href="../objects/Functor.htm">function object</a> to call automatically when the script receives the specified message.</td>
   </tr>
   <tr>
     <td><a href="Ord.htm">Ord()</a></td>
@@ -814,7 +826,7 @@
   </tr>
   <tr>
     <td><a href="Math.htm#Round">Round()</a></td>
-    <td>If <em>N</em> is omitted or 0, <em>Number</em> is rounded to the nearest integer. If <em>N</em> is positive number, <em>Number</em> is rounded to <em>N</em> decimal places. If <em>N</em> is negative, <em>Number</em> is rounded by <em>N</em> digits to the left of the decimal point.</td>
+    <td>Returns <em>Number</em> rounded to <em>N</em> decimal places.</td>
   </tr>
   <tr>
     <td class="larger"><a href="Run.htm">Run</a></td>
@@ -829,8 +841,8 @@
     <td>Runs an external program and waits until
       it finishes.</td>
   </tr>
-  <tr>
-    <td id="S"><a href="GuiControls.htm#SB_SetIcon">SB_SetIcon()</a><br />
+  <tr id="S">
+    <td><a href="GuiControls.htm#SB_SetIcon">SB_SetIcon()</a><br />
     <a href="GuiControls.htm#SB_SetParts">SB_SetParts()</a><br />
     <a href="GuiControls.htm#SB_SetText">SB_SetText()</a><br /></td>
     <td>The means by which the bar of a <a href="GuiControls.htm#StatusBar">StatusBar</a> control is modified.</td>
@@ -857,7 +869,7 @@
   </tr>
   <tr>
     <td><a href="SetNumScrollCapsLockState.htm">SetCapsLockState</a></td>
-    <td>Sets the state of the <kbd>CapsLock</kbd> key. Can also force the key to stay on or off.</td>
+    <td>Sets the state of <kbd>CapsLock</kbd>. Can also force the key to stay on or off.</td>
   </tr>
   <tr>
     <td><a href="SetControlDelay.htm">SetControlDelay</a></td>
@@ -885,15 +897,15 @@
   </tr>
   <tr>
     <td><a href="SetNumScrollCapsLockState.htm">SetNumLockState</a></td>
-    <td>Sets the state of the <kbd>NumLock</kbd> key. Can also force the key to stay on or off.</td>
+    <td>Sets the state of <kbd>NumLock</kbd>. Can also force the key to stay on or off.</td>
   </tr>
   <tr>
     <td><a href="SetNumScrollCapsLockState.htm">SetScrollLockState</a></td>
-    <td>Sets the state of the <kbd>ScrollLock</kbd> key. Can also force the key to stay on or off.</td>
+    <td>Sets the state of <kbd>ScrollLock</kbd>. Can also force the key to stay on or off.</td>
   </tr>
   <tr>
     <td><a href="SetRegView.htm">SetRegView</a></td>
-    <td>Allows registry commands in a 32-bit script to access the 64-bit registry view and vice versa.</td>
+    <td>Sets the registry view used by <a href="RegRead.htm">RegRead</a>, <a href="RegWrite.htm">RegWrite</a>, <a href="RegDelete.htm">RegDelete</a> and <a href="LoopReg.htm">registry loops</a>, allowing them in a 32-bit script to access the 64-bit registry view and vice versa.</td>
   </tr>
   <tr>
     <td><a href="SetStoreCapslockMode.htm">SetStoreCapsLockMode</a></td>
@@ -937,11 +949,11 @@
   </tr>
   <tr>
     <td><a href="SoundGet.htm">SoundGet</a></td>
-    <td>Retrieves various settings from a sound device (master mute, master volume, etc.)</td>
+    <td>Retrieves various settings of a sound device (master mute, master volume, etc.)</td>
   </tr>
   <tr>
     <td><a href="SoundGetWaveVolume.htm">SoundGetWaveVolume</a></td>
-    <td>Retrieves the wave output volume from a sound device.</td>
+    <td>Retrieves the wave output volume of a sound device.</td>
   </tr>
   <tr>
     <td><a href="SoundPlay.htm">SoundPlay</a></td>
@@ -953,19 +965,15 @@
   </tr>
   <tr>
     <td><a href="SoundSetWaveVolume.htm">SoundSetWaveVolume</a></td>
-    <td>Changes the wave output volume for a sound device.</td>
+    <td>Changes the wave output volume of a sound device.</td>
   </tr>
   <tr>
     <td><a href="Progress.htm">SplashImage</a></td>
-    <td>Creates or updates a window containing a JPG, GIF, or BMP image.</td>
+    <td>Creates or updates a window containing an image.</td>
   </tr>
   <tr>
-    <td><a href="SplashTextOn.htm">SplashTextOn</a></td>
-    <td>Creates a customizable text popup window.</td>
-  </tr>
-  <tr>
-    <td><a href="SplashTextOn.htm">SplashTextOff</a></td>
-    <td>Closes the above window.</td>
+    <td><a href="SplashTextOn.htm">SplashTextOn / SplashTextOff</a></td>
+    <td>Creates or removes a customizable text popup window.</td>
   </tr>
   <tr>
     <td class="larger"><a href="SplitPath.htm">SplitPath</a></td>
@@ -989,10 +997,10 @@
   </tr>
   <tr>
     <td><a href="StringCaseSense.htm">StringCaseSense</a></td>
-    <td>Determines whether string comparisons are case sensitive (default is &quot;not case sensitive&quot;).</td>
+    <td>Determines whether string comparisons are case sensitive (default is "not case sensitive").</td>
   </tr>
   <tr>
-    <td class="larger"><a href="StringGetPos.htm">StringGetPos</a> / <a href="InStr.htm">InStr()</a></td>
+    <td><a href="StringGetPos.htm">StringGetPos</a></td>
     <td>Retrieves the position of the specified substring within a string.</td>
   </tr>
   <tr>
@@ -1001,7 +1009,7 @@
       a string.</td>
   </tr>
   <tr>
-    <td class="larger"><a href="StringLen.htm">StringLen / StrLen()</a></td>
+    <td><a href="StringLen.htm">StringLen</a></td>
     <td>Retrieves the count of how many characters are in a string.</td>
   </tr>
   <tr>
@@ -1009,11 +1017,11 @@
     <td>Converts a string to lowercase.</td>
   </tr>
   <tr>
-    <td class="larger"><a href="StringMid.htm">StringMid</a> / <a href="SubStr.htm">SubStr()</a></td>
+    <td><a href="StringMid.htm">StringMid</a></td>
     <td>Retrieves one or more characters from the specified position in a string.</td>
   </tr>
   <tr>
-    <td class="larger"><a href="StringReplace.htm">StringReplace / StrReplace()</a></td>
+    <td><a href="StringReplace.htm">StringReplace</a></td>
     <td>Replaces the specified substring with a new string.</td>
   </tr>
   <tr>
@@ -1022,7 +1030,7 @@
       a string.</td>
   </tr>
   <tr>
-    <td><a href="StringSplit.htm">StringSplit / StrSplit()</a></td>
+    <td><a href="StringSplit.htm">StringSplit</a></td>
     <td>Separates a string into an array of substrings using the specified delimiters.</td>
   </tr>
   <tr>
@@ -1040,8 +1048,24 @@
     <td>Converts a string to uppercase.</td>
   </tr>
   <tr>
+    <td class="larger"><a href="StrLen.htm">StrLen()</a></td>
+    <td>Retrieves the count of how many characters are in a string.</td>
+  </tr>
+  <tr>
     <td><a href="StrPut.htm">StrPut()</a></td>
     <td>Copies a string to a memory address, optionally converting it to a given code page.</td>
+  </tr>
+  <tr>
+    <td class="larger"><a href="StrReplace.htm">StrReplace()</a></td>
+    <td>Replaces the specified substring with a new string.</td>
+  </tr>
+  <tr>
+    <td><a href="StrSplit.htm">StrSplit()</a></td>
+    <td>Separates a string into an array of substrings using the specified delimiters.</td>
+  </tr>
+  <tr>
+    <td class="larger"><a href="SubStr.htm">SubStr()</a></td>
+    <td>Retrieves one or more characters from the specified position in a string.</td>
   </tr>
   <tr>
     <td><a href="Suspend.htm">Suspend</a></td>
@@ -1077,11 +1101,11 @@
   </tr>
   <tr>
     <td><a href="TrayTip.htm">TrayTip</a></td>
-    <td>Creates a balloon message window or toast notification near the tray icon.</td>
+    <td>Creates a balloon message window near the tray icon. On Windows 10, a toast notification may be shown instead.</td>
   </tr>
   <tr>
     <td><a href="Trim.htm">Trim() / LTrim() / RTrim()</a></td>
-    <td>Trims certain characters from the beginning and/or end of a string.</td>
+    <td>Trims characters from the beginning and/or end of a string.</td>
   </tr>
   <tr>
     <td class="larger"><a href="Try.htm">Try</a></td>
@@ -1111,7 +1135,7 @@
     <td>Downloads a file from the Internet.</td>
   </tr>
   <tr>
-    <td class="larger"><a href="SetEnv.htm">Var = value</a></td>
+    <td><a href="SetEnv.htm">Var = Value</a></td>
     <td>Assigns the specified value to a <a href="../Variables.htm">variable</a>.</td>
   </tr>
   <tr>
@@ -1122,8 +1146,8 @@
     <td><a href="VarSetCapacity.htm">VarSetCapacity()</a></td>
     <td>Enlarges a variable's holding capacity or frees its memory. Normally, this is necessary only for unusual circumstances such as <a href="DllCall.htm">DllCall()</a>.</td>
   </tr>
-  <tr>
-    <td id="W" class="larger"><a href="While.htm">While-loop</a></td>
+  <tr id="W">
+    <td class="larger"><a href="While.htm">While-loop</a></td>
     <td>Performs a series of commands repeatedly until the specified <a href="../Variables.htm#Expressions">expression</a> evaluates to false.</td>
   </tr>
   <tr>
@@ -1135,8 +1159,8 @@
     <td>Same as <a href="WinActivate.htm">WinActivate</a> except that it activates the bottommost matching window rather than the topmost.</td>
   </tr>
   <tr>
-    <td><a href="WinActive.htm">WinActive()</a></td>
-    <td>Returns the Unique ID (HWND) of the active window if it matches the specified criteria.</td>
+    <td class="larger"><a href="WinActive.htm">WinActive()</a></td>
+    <td>Checks if the specified window is active and returns its unique ID (HWND).</td>
   </tr>
   <tr>
     <td class="larger"><a href="WinClose.htm">WinClose</a></td>
@@ -1144,7 +1168,7 @@
   </tr>
   <tr>
   <td class="larger"><a href="WinExist.htm">WinExist()</a></td>
-    <td>Returns the Unique ID (HWND) of the first matching window.</td>
+    <td>Checks if the specified window exists and returns the unique ID (HWND) of the first matching window.</td>
   </tr>
   <tr>
     <td><a href="WinGetActiveStats.htm">WinGetActiveStats</a></td>
@@ -1195,12 +1219,8 @@
     <td>Collapses the specified window into a button on the task bar.</td>
   </tr>
   <tr>
-    <td><a href="WinMinimizeAll.htm">WinMinimizeAll</a></td>
-    <td>Minimizes all windows.</td>
-  </tr>
-  <tr>
-    <td><a href="WinMinimizeAll.htm">WinMinimizeAllUndo</a></td>
-    <td>Reverses the effect of a previous <a href="WinMinimizeAll.htm">WinMinimizeAll</a>.</td>
+    <td><a href="WinMinimizeAll.htm">WinMinimizeAll / WinMinimizeAllUndo</a></td>
+    <td>Minimizes or unminimizes all windows.</td>
   </tr>
   <tr>
     <td class="larger"><a href="WinMove.htm">WinMove</a></td>
@@ -1212,7 +1232,7 @@
   </tr>
   <tr>
     <td><a href="WinSet.htm">WinSet</a></td>
-    <td>Makes a variety of changes to the specified window, such as &quot;always on top&quot; and transparency.</td>
+    <td>Makes a variety of changes to the specified window, such as "always on top" and transparency.</td>
   </tr>
   <tr>
     <td><a href="WinSetTitle.htm">WinSetTitle</a></td>
@@ -1227,19 +1247,15 @@
     <td>Waits until the specified window exists.</td>
   </tr>
   <tr>
-    <td class="larger"><a href="WinWaitActive.htm">WinWaitActive</a></td>
-    <td>Waits until the specified window is active.</td>
+    <td class="larger"><a href="WinWaitActive.htm">WinWaitActive / WinWaitNotActive</a></td>
+    <td>Waits until the specified window is active or not active.</td>
   </tr>
   <tr>
     <td class="larger"><a href="WinWaitClose.htm">WinWaitClose</a></td>
     <td>Waits until the specified window does not exist.</td>
   </tr>
-  <tr>
-    <td class="larger"><a href="WinWaitActive.htm">WinWaitNotActive</a></td>
-    <td>Waits until the specified window is not active.</td>
-  </tr>
-  <tr>
-    <td id="hash"><a href="_ClipboardTimeout.htm">#ClipboardTimeout</a></td>
+  <tr id="hash">
+    <td><a href="_ClipboardTimeout.htm">#ClipboardTimeout</a></td>
     <td>Changes how long the script keeps trying to access the clipboard when the first attempt fails.</td>
   </tr>
   <tr>
@@ -1256,11 +1272,11 @@
   </tr>
   <tr>
     <td><a href="_ErrorStdOut.htm">#ErrorStdOut</a></td>
-    <td>Sends any syntax error that prevents a script from launching to stdout rather than displaying a dialog.</td>
+    <td>Sends any syntax error that prevents a script from launching to the standard error stream (stderr) rather than displaying a dialog.</td>
   </tr>
   <tr>
     <td><a href="_EscapeChar.htm">#EscapeChar</a></td>
-    <td>Changes the script's escape character (for example: backslash vs. accent).</td>
+    <td>Changes the script's escape character (e.g. backslash vs. accent).</td>
   </tr>
   <tr>
     <td><a href="_HotkeyInterval.htm">#HotkeyInterval</a></td>
@@ -1276,7 +1292,7 @@
   </tr>
   <tr>
     <td class="larger"><a href="_If.htm">#If</a></td>
-    <td>Similar to <a href="_IfWinActive.htm">#IfWinActive</a>, but for arbitrary expressions.</td>
+    <td>Creates context-sensitive <a href="../Hotkeys.htm">hotkeys</a> and <a href="../Hotstrings.htm">hotstrings</a>. Such hotkeys perform a different action (or none at all) depending on the result of an expression.</td>
   </tr>
   <tr>
     <td><a href="_IfTimeout.htm">#IfTimeout</a></td>
@@ -1332,7 +1348,7 @@
   </tr>
   <tr>
     <td><a href="_MenuMaskKey.htm">#MenuMaskKey</a></td>
-    <td>Changes which key is used to mask <kbd>Win</kbd> or <kbd>Alt</kbd> keyup events.</td>
+    <td>Changes which key is used to mask Win or Alt keyup events.</td>
   </tr>
   <tr>
     <td class="larger"><a href="_NoEnv.htm">#NoEnv</a></td>
@@ -1347,6 +1363,10 @@
     <td>Keeps a script permanently running (that is, until the user closes it or <a href="ExitApp.htm">ExitApp</a> is encountered).</td>
   </tr>
   <tr>
+    <td><a href="_Requires.htm">#Requires</a></td>
+    <td>Displays an error and quits if a version requirement is not met.</td>
+  </tr>
+  <tr>
     <td><a href="_SingleInstance.htm">#SingleInstance</a></td>
     <td>Determines whether a script is allowed to run again when it is already running.</td>
   </tr>
@@ -1356,7 +1376,7 @@
   </tr>
   <tr>
     <td><a href="_Warn.htm">#Warn</a></td>
-    <td>Enables or disables warnings for selected conditions that may be indicative of developer errors.</td>
+    <td>Enables or disables warnings for specific conditions which may indicate an error, such as a typo or missing "global" declaration.</td>
   </tr>
   <tr>
     <td><a href="_WinActivateForce.htm">#WinActivateForce</a></td>
